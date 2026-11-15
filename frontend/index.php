@@ -45,8 +45,7 @@ What Can You Do on Recipe Keeper?
 $.ajax({
 url:"https://recipe-keeper-backend-k8gq.onrender.com/backend/get_user_basic_Detail.php",
 method:"GET",
-success:function(res){
-	let data = JSON.parse(res);
+success:function(data){
 	
 	if(data.user_name != null)
 	{
