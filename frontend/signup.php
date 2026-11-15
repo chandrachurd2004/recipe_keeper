@@ -27,7 +27,7 @@
 <script src='./js/jquery-4.0.0.js'></script>
 <script>
 $.ajax({
-url:"https://recipe-keeper-backend-k8gq.onrender.com/get_user_basic_Detail.php",
+url:"https://recipe-keeper-backend-k8gq.onrender.com/backend/get_user_basic_Detail.php",
 	method:"GET",
 	success:function(res){
 		let data = JSON.parse(res);
@@ -51,7 +51,7 @@ $("#signupform").on("submit",function(event){
 	payload['user_password'] = $("#Pass").val();
 	console.log(payload);
 	$.ajax({
-	url: "https://recipe-keeper-backend-k8gq.onrender.com/signup.php",
+	url: "https://recipe-keeper-backend-k8gq.onrender.com/backend/signup.php",
 		method : "POST",
 		data : payload,
 		success:function(res){

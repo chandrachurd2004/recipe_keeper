@@ -29,7 +29,7 @@ function del()
 		//del
 
 		$.ajax({
-		url:"https://recipe-keeper-backend-k8gq.onrender.com/recipe_delete.php",
+		url:"https://recipe-keeper-backend-k8gq.onrender.com/backend/recipe_delete.php",
 			method:"POST",
 			data:{"recipe_id" : recipeid},
 			success:function(res){
@@ -51,7 +51,7 @@ function del()
 
 }
 $.ajax({
-url:"https://recipe-keeper-backend-k8gq.onrender.com/get_user_basic_Detail.php",
+url:"https://recipe-keeper-backend-k8gq.onrender.com/backend/get_user_basic_Detail.php",
 	method:"GET",
 	success:function(res){
 		let data = JSON.parse(res);
@@ -70,7 +70,7 @@ function get_details_map(r_id)
 {
 
 	$.ajax({
-	url:"https://recipe-keeper-backend-k8gq.onrender.com/recipe_display_particular_map.php",
+	url:"https://recipe-keeper-backend-k8gq.onrender.com/backend/recipe_display_particular_map.php",
 		method:"POST",
 		data : {recipe_id : r_id},
 		success:function(res){
@@ -100,7 +100,7 @@ function get_details_map(r_id)
 function get_details(r_id)
 {
 	$.ajax({
-	url:"https://recipe-keeper-backend-k8gq.onrender.com/recipe_display_particular.php",
+	url:"https://recipe-keeper-backend-k8gq.onrender.com/backend/recipe_display_particular.php",
 		method:"POST",
 		data : {recipe_id : r_id},
 		success:function(res){

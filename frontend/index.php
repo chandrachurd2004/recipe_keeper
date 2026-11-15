@@ -43,7 +43,7 @@ What Can You Do on Recipe Keeper?
 <?php include "footer.php";?>
 <script>
 $.ajax({
-url:"https://recipe-keeper-backend-k8gq.onrender.com/get_user_basic_Detail.php",
+url:"https://recipe-keeper-backend-k8gq.onrender.com/backend/get_user_basic_Detail.php",
 method:"GET",
 success:function(res){
 	let data = JSON.parse(res);
