@@ -46,7 +46,9 @@ $.ajax({
 url:"https://recipe-keeper-backend-k8gq.onrender.com/backend/get_user_basic_Detail.php",
 method:"GET",
 success:function(res){
+	console.log(res);
 	let data = JSON.parse(res);
+	
 	if(data.user_name != null)
 	{
 		window.location.href = "https://recipe-keeper-backend-k8gq.onrender.com/frontend/home.php";
