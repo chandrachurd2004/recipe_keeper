@@ -6,7 +6,7 @@
 <script>
 $("#logout").on("click",function(){
 	$.ajax({
-	url : "https://recipe-keeper-backend-k8gq.onrender.com/logout.php",
+	url : "https://recipe-keeper-backend-k8gq.onrender.com/backend/logout.php",
 		method : "GET",
 		success:function(res){
 			let data = JSON.parse(res);

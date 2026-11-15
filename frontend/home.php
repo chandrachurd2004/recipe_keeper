@@ -14,13 +14,13 @@ include "navbar.php";
 <script src='./js/jquery-4.0.0.js'></script>
 <script>
 $.ajax({
-url:"https://recipe-keeper-backend-k8gq.onrender.com/get_user_basic_Detail.php",
+url:"https://recipe-keeper-backend-k8gq.onrender.com/backend/get_user_basic_Detail.php",
 	method:"GET",
 	success:function(res){
 		let data = JSON.parse(res);
 		if(data.user_name == null)
 		{
-			window.location.href = "index.php";
+			window.location.href = "https://recipe-keeper-backend-k8gq.onrender.com/frontend/index.php";
 		}
 		$("#user").html(data.user_name);
 	},
@@ -32,7 +32,7 @@ url:"https://recipe-keeper-backend-k8gq.onrender.com/get_user_basic_Detail.php",
 function load(){
 
 $.ajax({
-url:"https://recipe-keeper-backend-k8gq.onrender.com/recipe_display_all.php",
+url:"https://recipe-keeper-backend-k8gq.onrender.com/backend/recipe_display_all.php",
 	method:"GET",
 	success:function(res){
 
@@ -88,7 +88,7 @@ $('#submitform').on("submit",function(e){
 	}
 
 	$.ajax({
-url:"https://recipe-keeper-backend-k8gq.onrender.com/recipe_search.php",
+url:"https://recipe-keeper-backend-k8gq.onrender.com/backend/recipe_search.php",
 	method:"POST",
 	data:{"recipe_name" : search},
 	success:function(res){
@@ -155,7 +155,7 @@ $("#clearSearch").on("click",function(){
 function view(t)
 {
 	document.cookie = "recipe_id="+t.id;
-	window.location.href = "recipe_detail.php";
+	window.location.href = "https://recipe-keeper-backend-k8gq.onrender.com/frontend/recipe_detail.php";
 
 }
 
@@ -164,7 +164,7 @@ function update(t)
 {
 
 	document.cookie = "recipe_id="+t.id;
-	window.location.href = "recipe_update.php";
+	window.location.href = "https://recipe-keeper-backend-k8gq.onrender.com/frontend/recipe_update.php";
 
 }
 
@@ -178,7 +178,7 @@ function del(t)
 		//del
 
 		$.ajax({
-		url:"https://recipe-keeper-backend-k8gq.onrender.com/recipe_delete.php",
+		url:"https://recipe-keeper-backend-k8gq.onrender.com/backend/recipe_delete.php",
 			method:"POST",
 			data:{"recipe_id" : t.id},
 			success:function(res){
@@ -186,7 +186,7 @@ function del(t)
 				if(data.success == true)
 				{
 					window.alert("recipe deleted successfully");
-					window.location.href = "home.php";
+					window.location.href = "https://recipe-keeper-backend-k8gq.onrender.com/frontend/home.php";
 				}
 
 

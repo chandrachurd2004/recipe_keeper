@@ -25,13 +25,13 @@ include "navbar.php";
 let map = new Set();
 
 $.ajax({
-url:"https://recipe-keeper-backend-k8gq.onrender.com/get_user_basic_Detail.php",
+url:"https://recipe-keeper-backend-k8gq.onrender.com/backend/get_user_basic_Detail.php",
 	method:"GET",
 	success:function(res){
 		let data = JSON.parse(res);
 		if(data.user_name == null)
 		{
-			window.location.href = "index.php";
+			window.location.href = "https://recipe-keeper-backend-k8gq.onrender.com/frontend/index.php";
 		}
 		$("#user").html(data.user_name);
 	},
@@ -41,7 +41,7 @@ url:"https://recipe-keeper-backend-k8gq.onrender.com/get_user_basic_Detail.php",
 });
 
 $.ajax({
-url:"https://recipe-keeper-backend-k8gq.onrender.com/get_level1_catagorization.php",
+url:"https://recipe-keeper-backend-k8gq.onrender.com/backend/get_level1_catagorization.php",
 	method:"GET",
 	success:function(res){
 		let data = JSON.parse(res);
@@ -64,7 +64,7 @@ function cat2_fetch(t)
 	let cat1 = t.id;
 	let divs = "#cat1_"+t.id
 		$.ajax({
-		url:"https://recipe-keeper-backend-k8gq.onrender.com/get_level2_catagorization.php",
+		url:"https://recipe-keeper-backend-k8gq.onrender.com/backend/get_level2_catagorization.php",
 			method:"GET",
 			data:{"l1_id":cat1},
 			success:function(res){
@@ -91,7 +91,7 @@ function cat3_fetch(t)
 	let l2 = t.id;
 	let divs = "#cat2_"+l2;
 	$.ajax({
-	url:"https://recipe-keeper-backend-k8gq.onrender.com/get_level3_catagorization.php",
+	url:"https://recipe-keeper-backend-k8gq.onrender.com/backend/get_level3_catagorization.php",
 		method:"GET",
 		data:{"l2_id":l2},
 		success:function(res){
@@ -118,7 +118,7 @@ $("#button").on("click",function(){
 const str = [...map].join(', ');
 
 	$.ajax({
-	url:"https://recipe-keeper-backend-k8gq.onrender.com/recipe_filter.php",
+	url:"https://recipe-keeper-backend-k8gq.onrender.com/backend/recipe_filter.php",
 		method:"POST",
 		data :{"map":str},
 		success:function(res){
@@ -189,7 +189,7 @@ function updatearr(t)
 function view(t)
 {
 	document.cookie = "recipe_id="+t.id;
-	window.location.href = "recipe_detail.php";
+	window.location.href = "https://recipe-keeper-backend-k8gq.onrender.com/frontend/recipe_detail.php";
 
 }
 
@@ -198,7 +198,7 @@ function update(t)
 {
 
 	document.cookie = "recipe_id="+t.id;
-	window.location.href = "recipe_update.php";
+	window.location.href = "https://recipe-keeper-backend-k8gq.onrender.com/frontend/recipe_update.php";
 
 }
 
@@ -212,7 +212,7 @@ function del(t)
 		//del
 
 		$.ajax({
-		url:"https://recipe-keeper-backend-k8gq.onrender.com/recipe_delete.php",
+		url:"https://recipe-keeper-backend-k8gq.onrender.com/backend/recipe_delete.php",
 			method:"POST",
 			data:{"recipe_id" : t.id},
 			success:function(res){

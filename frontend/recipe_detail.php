@@ -19,7 +19,7 @@ const recipeid = getCookie('recipe_id');
 function update()
 {
 	document.cookie = "recipe_id="+recipeid;
-	window.location.href = "recipe_update.php";
+	window.location.href = "https://recipe-keeper-backend-k8gq.onrender.com/frontend/recipe_update.php";
 }
 function del()
 {
@@ -37,7 +37,7 @@ function del()
 				if(data.success == true)
 				{
 					window.alert("recipe deleted successfully");
-					window.location.href = "home.php";
+					window.location.href = "https://recipe-keeper-backend-k8gq.onrender.com/frontend/home.php";
 				}
 
 
@@ -57,7 +57,7 @@ url:"https://recipe-keeper-backend-k8gq.onrender.com/get_user_basic_Detail.php",
 		let data = JSON.parse(res);
 		if(data.user_name == null)
 		{
-			window.location.href = "index.php";
+			window.location.href = "https://recipe-keeper-backend-k8gq.onrender.com/frontend/index.php";
 		}
 		$("#user").html(data.user_name);
 	},
@@ -142,12 +142,12 @@ function getCookie(name) {
 // Get and display the username cookie
 if(recipeid > 0)
 {
-	document.cookie = "recipe_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/25mmcf27/WadProject/frontend";
+	document.cookie = "recipe_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/frontend";
 	get_details(recipeid);
 }
 else
 {
-	document.location.href = "home.php";
+	document.location.href = "https://recipe-keeper-backend-k8gq.onrender.com/frontend/home.php";
 }
 
 </script>

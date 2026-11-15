@@ -41,13 +41,13 @@
 <script src='./js/jquery-4.0.0.js'></script>
 <script>
 $.ajax({
-url:"https://recipe-keeper-backend-k8gq.onrender.com/get_user_basic_Detail.php",
+url:"https://recipe-keeper-backend-k8gq.onrender.com/backend/get_user_basic_Detail.php",
 	method:"GET",
 	success:function(res){
 		let data = JSON.parse(res);
 		if(data.user_name == null)
 		{
-			window.location.href = "index.php";
+			window.location.href = "https://recipe-keeper-backend-k8gq.onrender.com/frontend/index.php";
 		}
 		$("#user").html(data.user_name);
 	},
@@ -59,7 +59,7 @@ url:"https://recipe-keeper-backend-k8gq.onrender.com/get_user_basic_Detail.php",
 
 let map = new Set();
 $.ajax({
-url:"https://recipe-keeper-backend-k8gq.onrender.com/get_level1_catagorization.php",
+url:"https://recipe-keeper-backend-k8gq.onrender.com/backend/get_level1_catagorization.php",
 	method: "GET",
 	success:function(res){
 		let data = JSON.parse(res);
@@ -91,7 +91,7 @@ $("#addform").on("submit",function(event){
 	payload['map'] = [...map].join(); 
 
 $.ajax({
-        url: "https://recipe-keeper-backend-k8gq.onrender.com/recipe_add.php",
+        url: "https://recipe-keeper-backend-k8gq.onrender.com/backend/recipe_add.php",
         method: "POST",
         data: payload,
         success: function(res) {
@@ -99,7 +99,7 @@ $.ajax({
 
             if(data.success == true) {
 		    window.alert("recipe added successfully");
-		    window.location.href = "home.php";
+		    window.location.href = "https://recipe-keeper-backend-k8gq.onrender.com/frontend/home.php";
 
             }
         },
@@ -116,7 +116,7 @@ function selectedCat1(t) {
     let level1Id = t.id;
 
     $.ajax({
-        url: "https://recipe-keeper-backend-k8gq.onrender.com/get_level2_catagorization.php",
+        url: "https://recipe-keeper-backend-k8gq.onrender.com/backend/get_level2_catagorization.php",
         method: "GET",
         data: { "l1_id": level1Id },
         success: function(res) {
@@ -147,7 +147,7 @@ function selectedCat2(t) {
     //console.log("Level 2 category clicked ID:", level2Id);
     // Add your Level 3 AJAX call here if needed
        $.ajax({
-        url: "https://recipe-keeper-backend-k8gq.onrender.com/get_level3_catagorization.php",
+        url: "https://recipe-keeper-backend-k8gq.onrender.com/backend/get_level3_catagorization.php",
         method: "GET",
         data: { "l2_id": level2Id },
         success: function(res) {

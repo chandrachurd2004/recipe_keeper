@@ -28,7 +28,7 @@ url:"https://recipe-keeper-backend-k8gq.onrender.com/get_user_basic_Detail.php",
 		let data = JSON.parse(res);
 		if(data.user_name != null)
 		{
-			window.location.href = "home.php";
+			window.location.href = "https://recipe-keeper-backend-k8gq.onrender.com/frontend/home.php";
 		}
 
 	},
@@ -53,7 +53,7 @@ $("#signupform").on("submit",function(event){
 			if(data.success == true)
 			{
 document.cookie = "login=true;";
-				window.location.href = "home.php";
+				window.location.href = "https://recipe-keeper-backend-k8gq.onrender.com/frontend/home.php";
 			}
 			else
 			{
